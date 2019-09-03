@@ -1,0 +1,31 @@
+import React from 'react';
+import HiltonTask from './HiltonTask';
+import RoomComponent from './RoomComponent';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() })
+import {shallow,mount} from 'enzyme'
+global.window.localStorage = global.localStorage;
+
+	
+describe("HiltonTask", () => {
+  it("should render HiltonTask component successfully", () => {
+    const wrapper = shallow(<HiltonTask />);        
+  });
+  
+  it('should render 4 main checkboxes in div', () => {
+    const container = mount(<HiltonTask />);
+    expect(container.find('checckbox').length)===4;
+  });
+});
+
+describe("RoomComponent", () => {
+	it("should render RoomComponent successfully", () => {	
+    const wrapper = shallow(<RoomComponent />);
+  });
+	
+});
+	
+
+
+
